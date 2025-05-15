@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
         if (person != null)
             transform.position = new Vector3(person.Position[0], 0, person.Position[2]);
     }
+    
+    public void SetRotation(Person nextFrameDataPerson)
+    {
+        //TODO Make this rotation smoother when the next position is really small the rotation is jittery
+        if (nextFrameDataPerson != null)
+            transform.LookAt(new Vector3(nextFrameDataPerson.Position[0], 0, nextFrameDataPerson.Position[2]));
+    }
 
     public void SetJerseyColor(Person person)
     {

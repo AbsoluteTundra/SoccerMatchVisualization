@@ -56,11 +56,21 @@ public class MatchVisualizer : MonoBehaviour
     private IEnumerator VisualizeFrame()
     {
         MatchFrameData matchFrameData = matchFrameDataCollection[frameCount];
+        
+        //TODO Fix the error that appears at the end of the match because the index doesn't exist
+        MatchFrameData nextMatchFrameData = matchFrameDataCollection[frameCount + 1];
 
         foreach (Person person in matchFrameData.Persons)
         {
             Player player = players[person.Id];
             player.SetPosition(person);
+        }
+        
+        //Player also need to match the direction they are headed in which will be based on the data for the next frame
+        foreach (Person person in nextMatchFrameData.Persons)
+        {
+            Player player = players[person.Id];
+            player.SetRotation(person);
         }
 
         yield return new WaitForEndOfFrame();

@@ -63,3 +63,6 @@ bld/
 !OBJ
 UnityPackageManager/
 JetBrains/
+*.log
+SoccerMatchVisualization/UserSettings/Layouts/default-6000.dwlt
+/SoccerMatchVisualization/UserSettings

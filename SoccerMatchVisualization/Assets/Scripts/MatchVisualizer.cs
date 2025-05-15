@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class MatchVisualizer : MonoBehaviour
 {
-    [SerializeField]
-    private Player playerPrefab;
+    [SerializeField] private Player playerPrefab;
 
     private int frameCount;
 
@@ -45,11 +44,12 @@ public class MatchVisualizer : MonoBehaviour
         // Also the jersey number needs to be visible
         foreach (Person person in persons)
         {
-            Player personGameObject = Instantiate(playerPrefab);
-            personGameObject.SetPosition(person);
-            personGameObject.SetJerseyColor(person);
+            Player player = Instantiate(playerPrefab);
+            player.SetPosition(person);
+            player.SetJerseyColor(person);
+            player.SetJerseyNumber(person);
             //Add the player to the dictionary for later use
-            players.Add(person.Id, personGameObject);
+            players.Add(person.Id, player);
         }
     }
 

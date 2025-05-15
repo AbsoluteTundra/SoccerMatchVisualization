@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MatchVisualizer : MonoBehaviour
 {
     [SerializeField]
-    public Player playerPrefab;
-    
-    public int frameCount;
-    
+    private Player playerPrefab;
+
+    private int frameCount;
+
     private List<MatchFrameData> matchFrameDataCollection;
-   
+
+    private Dictionary<string, Player> players;
+
     private void OnEnable()
     {
         MatchDataReader.OnGeneratingMatchData += OnMatchFrameDataRetrieved;
@@ -25,40 +28,39 @@ public class MatchVisualizer : MonoBehaviour
     {
         Debug.Log("Data Received");
         this.matchFrameDataCollection = matchFrameDataCollection;
-        
-        //Now that the data is retrieved let's start visualizing the frame
+
+        //First setup and spawn the people that are involved with the match
+        // Using a dictionary to easisly look them up later when need for the next frame
+        SetupPlayers(matchFrameDataCollection.First().Persons);
+
+        //Now that the data is retrieved and player are setup let's start visualizing the frames
         StartCoroutine(VisualizeFrame());
+    }
+
+    private void SetupPlayers(List<Person> persons)
+    {
+        players = new Dictionary<string, Player>();
+
+        //Players need to have different jersey colors and position when spawned
+        // Also the jersey number needs to be visible
+        foreach (Person person in persons)
+        {
+            Player personGameObject = Instantiate(playerPrefab);
+            personGameObject.SetPosition(person);
+            personGameObject.SetJerseyColor(person);
+            //Add the player to the dictionary for later use
+            players.Add(person.Id, personGameObject);
+        }
     }
 
     private IEnumerator VisualizeFrame()
     {
-        
-        //TODO This is horrible way to update the player they should always stay in the scene and just have
-        // their position updated instead of spawning new ones each frame and destroying the ones from the previous frame
-        // But for quick iteration/prototyping this was used
-        foreach (var player in FindObjectsByType<Player>(FindObjectsSortMode.None))
-        {
-            Destroy(player.gameObject);
-        }
-        
         MatchFrameData matchFrameData = matchFrameDataCollection[frameCount];
+
         foreach (Person person in matchFrameData.Persons)
         {
-            Player personGameObject = Instantiate(playerPrefab);
-            personGameObject.transform.position = new Vector3(person.Position[0], 0, person.Position[2]);
-
-            switch (person.TeamSide)
-            {
-                case 1:
-                    personGameObject.SetJerseyColor(Color.blue);
-                    break;
-                case 2:
-                    personGameObject.SetJerseyColor(Color.red);
-                    break;
-                default:
-                    personGameObject.SetJerseyColor(Color.yellow);
-                    break;
-            }
+            Player player = players[person.Id];
+            player.SetPosition(person);
         }
 
         yield return new WaitForEndOfFrame();

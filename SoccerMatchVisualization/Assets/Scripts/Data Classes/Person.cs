@@ -1,5 +1,3 @@
-using UnityEngine;
-
 [System.Serializable]
 public class Person
 {
@@ -7,5 +5,5 @@ public class Person
     public int TeamSide;
     public int JerseyNumber;
     public float Speed;
-    public Vector3 Position;
+    public float[] Position;
 }

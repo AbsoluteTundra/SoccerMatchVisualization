@@ -6,4 +6,5 @@ public struct MatchFrameData
 {
     public int FrameCount;
     public List<Person> Persons;
+    public Ball Ball;
 }

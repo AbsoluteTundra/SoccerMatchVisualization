@@ -212,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
-  m_LocalPosition: {x: 0, y: 35, z: -70}
+  m_LocalPosition: {x: 0, y: 34.5, z: -70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -540,7 +540,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8139073719946839054, guid: fb89a20bdbfd3e84ba5e71762c88d482, type: 3}
-  frameCount: 0
+  ballPrefab: {fileID: 5694748497486631080, guid: dcc9948a50a7621439b93c3f2b49b716, type: 3}
+  cinemachineCamera: {fileID: 1901109477}
 --- !u!4 &1730037192
 Transform:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ MonoBehaviour:
   Target:
     TrackingTarget: {fileID: 143009394}
     LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
+    CustomLookAtTarget: 1
   Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -659,7 +660,7 @@ Transform:
   m_GameObject: {fileID: 1901109474}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22975294, y: 0, z: 0, w: 0.973249}
-  m_LocalPosition: {x: 0, y: 35, z: -70}
+  m_LocalPosition: {x: 0, y: 34.5, z: -70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -691,7 +692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc574fb5c1d9f654c90bc4e5bac7af38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc574fb5c1d9f654c90bc4e5bac7af38, type: 3}
       propertyPath: m_LocalPosition.z

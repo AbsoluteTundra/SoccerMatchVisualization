@@ -70,27 +70,40 @@ public class MatchVisualizer : MonoBehaviour
     {
         MatchFrameData matchFrameData = matchFrameDataCollection[frameCount];
         
-        //TODO Fix the error that appears at the end of the match because the index doesn't exist
-        MatchFrameData nextMatchFrameData = matchFrameDataCollection[frameCount + 1];
+        MatchFrameData nextMatchFrameData = null;
+
+        if (frameCount + 1 <= matchFrameDataCollection.Count - 1)
+            nextMatchFrameData = matchFrameDataCollection[frameCount + 1];
 
         foreach (Person person in matchFrameData.Persons)
         {
             PersonActor player = players[person.Id];
             player.SetPosition(person);
         }
-        
-        //Player also need to match the direction they are headed in which will be based on the data for the next frame
-        foreach (Person person in nextMatchFrameData.Persons)
+
+        if (nextMatchFrameData != null)
         {
-            PersonActor player = players[person.Id];
-            player.SetRotation(person);
+            //Player also need to match the direction they are headed in which will be based on the data for the next frame
+            foreach (Person person in nextMatchFrameData.Persons)
+            {
+                PersonActor player = players[person.Id];
+                player.SetRotation(person);
+            }
         }
-        
+
         //set the location of the ball every frame of the match
         ball.SetPosition(matchFrameData.Ball);
 
         yield return new WaitForEndOfFrame();
         frameCount++;
-        StartCoroutine(VisualizeFrame());
+
+        if (frameCount == matchFrameDataCollection.Count)
+        {
+            Debug.Log("No more data Match stopped");
+        }
+        else
+        {
+            StartCoroutine(VisualizeFrame());
+        }
     }
 }

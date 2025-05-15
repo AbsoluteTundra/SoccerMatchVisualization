@@ -27,6 +27,17 @@ public class MatchVisualizer : MonoBehaviour
         MatchDataReader.OnGeneratingMatchData -= OnMatchFrameDataRetrieved;
     }
 
+    public void SetFrameCount(int value)
+    {
+        frameCount = value;
+        StartCoroutine(VisualizeFrame());
+    }
+    
+    public int GetFrameCount()
+    {
+        return frameCount;
+    }
+
     private void OnMatchFrameDataRetrieved(List<MatchFrameData> matchFrameDataCollection)
     {
         Debug.Log("Data Received");

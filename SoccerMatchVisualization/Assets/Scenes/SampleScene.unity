@@ -988,6 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f3b54ad5d345c4d9a0ac1af2154cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameRate: 25
   playerPrefab: {fileID: 8139073719946839054, guid: fb89a20bdbfd3e84ba5e71762c88d482, type: 3}
   ballPrefab: {fileID: 5694748497486631080, guid: dcc9948a50a7621439b93c3f2b49b716, type: 3}
   cinemachineCamera: {fileID: 1901109477}

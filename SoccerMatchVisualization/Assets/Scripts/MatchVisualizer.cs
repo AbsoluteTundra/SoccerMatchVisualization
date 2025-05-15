@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MatchVisualizer : MonoBehaviour
 {
+    [SerializeField] private int frameRate = 25;
     [SerializeField] private PersonActor playerPrefab;
     [SerializeField] private BallActor ballPrefab;
 
@@ -30,7 +31,12 @@ public class MatchVisualizer : MonoBehaviour
     public void SetFrameCount(int value)
     {
         frameCount = value;
-        StartCoroutine(VisualizeFrame());
+        PlayMatch();
+    }
+    
+    private void PlayMatch()
+    {
+        InvokeRepeating(nameof(VisualizeFrame),0,1.0f/frameRate);
     }
     
     public int GetFrameCount()
@@ -38,19 +44,23 @@ public class MatchVisualizer : MonoBehaviour
         return frameCount;
     }
 
+    public float GetFrameRate()
+    {
+        return frameRate;
+    }
+    
     private void OnMatchFrameDataRetrieved(List<MatchFrameData> matchFrameDataCollection)
     {
         Debug.Log("Data Received");
         this.matchFrameDataCollection = matchFrameDataCollection;
 
-        //First setup and spawn the people that are involved with the match
-        // Using a dictionary to easisly look them up later when need for the next frame
+        //First setup and spawn the people & ball that are involved with the match
+        // Using a dictionary to easily look up the players later when needed for the next frame
         SetupPlayers(matchFrameDataCollection.First().Persons);
-
         SetupBall(matchFrameDataCollection.First().Ball);
-
+        
         //Now that the data is retrieved and player are setup let's start visualizing the frames
-        StartCoroutine(VisualizeFrame());
+        PlayMatch();
     }
 
     private void SetupPlayers(List<Person> persons)
@@ -77,7 +87,12 @@ public class MatchVisualizer : MonoBehaviour
         cinemachineCamera.LookAt = ball.transform;
     }
 
-    private IEnumerator VisualizeFrame()
+    //I noticed that the speed of the match didn't match with description of the assigment as the match was around 10 minutes
+    //I assumed it would be around 60FPS but with the help of AI found out that the Framerate might be closer to 25.
+    // 25FPS is common for real-time video recordings
+    // To Test I set the FixedUpdate rate to 1/25 and used stopwatch to check the time
+    // Based on that information changed from using couroutine to instead use InvokeRepeating 
+    private void VisualizeFrame()
     {
         MatchFrameData matchFrameData = matchFrameDataCollection[frameCount];
         
@@ -104,17 +119,13 @@ public class MatchVisualizer : MonoBehaviour
 
         //set the location of the ball every frame of the match
         ball.SetPosition(matchFrameData.Ball);
-
-        yield return new WaitForEndOfFrame();
+        
         frameCount++;
 
         if (frameCount == matchFrameDataCollection.Count)
         {
             Debug.Log("No more data Match stopped");
-        }
-        else
-        {
-            StartCoroutine(VisualizeFrame());
+            CancelInvoke();
         }
     }
 }

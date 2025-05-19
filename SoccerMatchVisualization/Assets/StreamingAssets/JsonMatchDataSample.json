@@ -1,0 +1,496 @@
+﻿{
+  "FrameCount": 1519819,
+  "TimestampUTC": 60792760.0,
+  "Persons": [
+    {
+      "Id": 18,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -10.4,
+        0.0,
+        -0.48
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 18,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 108,
+      "Timestamp": 60792760.0,
+      "Position": [
+        3.95,
+        0.0,
+        -19.76
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 8,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 111,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -22.13,
+        0.0,
+        -18.15
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 11,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 15,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -5.33,
+        0.0,
+        23.16
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 15,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 104,
+      "Timestamp": 60792760.0,
+      "Position": [
+        6.13,
+        0.0,
+        -7.31
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 4,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 105,
+      "Timestamp": 60792760.0,
+      "Position": [
+        5.99,
+        0.0,
+        4.14
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 5,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 301,
+      "Timestamp": 60792760.0,
+      "Position": [
+        6.14,
+        0.0,
+        -34.62
+      ],
+      "Speed": 0.0,
+      "TeamSide": 0,
+      "JerseyNumber": 1,
+      "AnimationContext": {},
+      "PersonContext": {
+        "MovementOrientation": 139.8665,
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 23,
+      "Timestamp": 60792760.0,
+      "Position": [
+        1.0,
+        0.0,
+        7.51
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 23,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 122,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -1.62,
+        0.0,
+        -7.18
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 22,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 302,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -35.1,
+        0.0,
+        35.46
+      ],
+      "Speed": 0.0,
+      "TeamSide": 0,
+      "JerseyNumber": 2,
+      "AnimationContext": {},
+      "PersonContext": {
+        "MovementOrientation": -99.70903,
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 399,
+      "Timestamp": 60792760.0,
+      "Position": [
+        55.5,
+        0.0,
+        44.0
+      ],
+      "Speed": 0.0,
+      "TeamSide": 0,
+      "JerseyNumber": 99,
+      "AnimationContext": {},
+      "PersonContext": {
+        "MovementOrientation": -157.66075,
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": -101,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -6.75,
+        0.0,
+        -36.76
+      ],
+      "Speed": 0.0,
+      "TeamSide": 0,
+      "JerseyNumber": -1,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 107,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -14.11,
+        0.0,
+        18.94
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 7,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 125,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -30.17,
+        0.0,
+        5.51
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 25,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 9,
+      "Timestamp": 60792760.0,
+      "Position": [
+        8.88,
+        0.0,
+        -7.15
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 9,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 300,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -3.32,
+        0.0,
+        12.46
+      ],
+      "Speed": 0.0,
+      "TeamSide": 0,
+      "JerseyNumber": 0,
+      "AnimationContext": {},
+      "PersonContext": {
+        "MovementOrientation": -168.02567,
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 6,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -0.24,
+        0.0,
+        -6.0
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 6,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 11,
+      "Timestamp": 60792760.0,
+      "Position": [
+        4.17,
+        0.0,
+        -21.45
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 11,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 1,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -42.0,
+        0.0,
+        5.57
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 1,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 5,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -34.93,
+        0.0,
+        -12.2
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 5,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 110,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -11.24,
+        0.0,
+        1.99
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 10,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 103,
+      "Timestamp": 60792760.0,
+      "Position": [
+        5.63,
+        0.0,
+        14.06
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 3,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 3,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -34.1,
+        0.0,
+        12.38
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 3,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 120,
+      "Timestamp": 60792760.0,
+      "Position": [
+        1.04,
+        0.0,
+        2.73
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 20,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 7,
+      "Timestamp": 60792760.0,
+      "Position": [
+        6.19,
+        0.0,
+        13.84
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 7,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 124,
+      "Timestamp": 60792760.0,
+      "Position": [
+        30.46,
+        0.0,
+        -0.39
+      ],
+      "Speed": 0.0,
+      "TeamSide": 1,
+      "JerseyNumber": 24,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    },
+    {
+      "Id": 4,
+      "Timestamp": 60792760.0,
+      "Position": [
+        -11.03,
+        0.0,
+        -24.24
+      ],
+      "Speed": 0.0,
+      "TeamSide": 2,
+      "JerseyNumber": 4,
+      "AnimationContext": {},
+      "PersonContext": {
+        "HasBallPossession": false,
+        "PlayerState": 0
+      }
+    }
+  ],
+  "Ball": {
+    "Id": 0,
+    "Timestamp": 60792760.0,
+    "Position": [
+      -40.38,
+      0.0,
+      4.6
+    ],
+    "Speed": 0.0,
+    "TeamSide": 0,
+    "JerseyNumber": 0,
+    "TrackableBallContext": {
+      "BallState": 1,
+      "Possession": 2
+    }
+  },
+  "GameClockContext": {
+    "Period": 0,
+    "Minute": 0,
+    "Second": 0,
+    "InjuryTime": 0
+  },
+  "MatchScoreContext": {
+    "HomeScore": 0,
+    "AwayScore": 0
+  },
+  "PossessionCandidateContext": {}
+}

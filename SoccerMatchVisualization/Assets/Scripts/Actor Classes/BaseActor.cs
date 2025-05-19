@@ -11,10 +11,12 @@ public class BaseActor : MonoBehaviour
             transform.position = new Vector3(baseActorData.Position[0], baseActorData.Position[1], baseActorData.Position[2]);
     }
     
-    public void SetRotation(BaseActorData nextFrameDataPersonBaseActorData)
+    // Rotation is predicted based on the data of the next frame
+    // This however is not how most soccer player walk/move since they can also move diagonally like most of judges do
+    // I thought movement orientation would be the solution but that data is missing for most players and there not usable
+    public void SetRotation(BaseActorData baseActorData)
     {
-        //TODO Make this rotation smoother when the next position is really small the rotation is jittery
-        if (nextFrameDataPersonBaseActorData != null)
-            transform.LookAt(new Vector3(nextFrameDataPersonBaseActorData.Position[0], 0, nextFrameDataPersonBaseActorData.Position[2]));
+        if (baseActorData != null)
+            transform.LookAt(new Vector3(baseActorData.Position[0], 0, baseActorData.Position[2]));
     }
 }

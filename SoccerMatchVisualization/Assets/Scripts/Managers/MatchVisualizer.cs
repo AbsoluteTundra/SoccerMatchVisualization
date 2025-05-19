@@ -13,6 +13,7 @@ public class MatchVisualizer : MonoBehaviour
     [SerializeField] private int frameRate = 25;
     [SerializeField] private PersonActor playerPrefab;
     [SerializeField] private BallActor ballPrefab;
+    [SerializeField] private CinemachineCamera cinemachineCamera;
 
     private int frameCount;
 
@@ -20,7 +21,6 @@ public class MatchVisualizer : MonoBehaviour
 
     private Dictionary<string, PersonActor> players;
     private BallActor ball;
-    [SerializeField] private CinemachineCamera cinemachineCamera;
     
     private void PlayMatch()
     {
@@ -30,10 +30,9 @@ public class MatchVisualizer : MonoBehaviour
     // Set the framecount to the given value
     public void SetFrameCount(int newIndex)
     {
-        if (newIndex < 0 || newIndex > matchFrameDataCollection.Count - 1)
-            return;
+        if (newIndex > 0 && newIndex != matchFrameDataCollection.Count)
+            frameCount = newIndex;
         
-        frameCount = newIndex;
         PlayMatch();
     }
 

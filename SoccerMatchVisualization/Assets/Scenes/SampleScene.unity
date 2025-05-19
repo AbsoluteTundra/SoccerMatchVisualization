@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788d01c1cb3d88e4aa719a27cfd790dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MatchData: {fileID: 0}
+  matchFileName: MatchData.idf
   matchFrameDataCollection: []
 --- !u!4 &1151501579
 Transform:

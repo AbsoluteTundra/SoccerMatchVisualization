@@ -17,11 +17,14 @@ public class MatchDataReader : MonoBehaviour
     private void Start()
     {
         //We first need to analyze the data and read from the provided file
-        ExtractDataFromFile();
+        _ = ExtractDataFromFile();
     }
 
-    private void ExtractDataFromFile()
+    //Decided to do the data conversion in the background thread because it can be quite expensive and don't want to freeze the main thread
+    private async Awaitable ExtractDataFromFile()
     {
+        await Awaitable.BackgroundThreadAsync();
+        
         // Decided to use StreamingAssets since I need the content of the file and the type of file wasn't a TextAsset
         // I'm assuming that within the company they use a system where users can download the matches they want to see or use the Unity Addressable System to deliver content to the users
         string file =  Path.Combine(Application.streamingAssetsPath, matchFileName);
@@ -46,6 +49,8 @@ public class MatchDataReader : MonoBehaviour
             }
         }
 
+        await Awaitable.MainThreadAsync();
+        
         //When done we need to tell the class responsible for the visualization that the data is done and the match can begin
         OnGeneratingMatchData?.Invoke(matchFrameDataCollection);
     }

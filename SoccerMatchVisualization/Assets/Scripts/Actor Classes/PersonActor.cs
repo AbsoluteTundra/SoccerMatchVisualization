@@ -11,6 +11,7 @@ public class PersonActor : BaseActor
         if (jersey == null || person == null)
             return;
 
+        //Judges are Yellow
         switch (person.TeamSide)
         {
             case 1:

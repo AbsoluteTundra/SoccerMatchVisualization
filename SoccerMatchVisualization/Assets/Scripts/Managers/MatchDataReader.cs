@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -9,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class MatchDataReader : MonoBehaviour
 {
-    [SerializeField] private DefaultAsset MatchData;
+    [SerializeField] private string matchFileName = "MatchData.idf";
 
     [SerializeField] private List<MatchFrameData> matchFrameDataCollection = new List<MatchFrameData>();
 
@@ -23,11 +22,19 @@ public class MatchDataReader : MonoBehaviour
 
     private void ExtractDataFromFile()
     {
-        //TEMP Solution to start reading the data not desirable as this path doesn't exist inside a build and want I something more dynamic later
+        // Decided to use StreamingAssets since I need the content of the file and the type of file wasn't a TextAsset
         // I'm assuming that within the company they use a system where users can download the matches they want to see or use the Unity Addressable System to deliver content to the users
-        foreach (string frameData in File.ReadLines("Assets/Resources/Applicant-test.idf"))
+        string file =  Path.Combine(Application.streamingAssetsPath, matchFileName);
+
+        if (!File.Exists(file))
         {
-            //Convert the string retrieved from the file to a class/struct using JsonUtility as the string retrieved is in correct json format
+            Debug.LogError($"Could not find file:{file}");
+            return;
+        }
+        
+        foreach (string frameData in File.ReadLines(file))
+        {
+            //Convert the string retrieved from the file to a class using JsonUtility as the string retrieved is in correct json format and it to the list of frame data
             matchFrameDataCollection.Add(JsonUtility.FromJson<MatchFrameData>(frameData));
         }
 

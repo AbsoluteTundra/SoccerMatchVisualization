@@ -21,7 +21,34 @@ public class MatchVisualizer : MonoBehaviour
     private Dictionary<string, PersonActor> players;
     private BallActor ball;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+    
+    private void PlayMatch()
+    {
+        InvokeRepeating(nameof(VisualizeFrame),0,1.0f/frameRate);
+    }
+    
+    // Set the framecount to the given value
+    public void SetFrameCount(int newIndex)
+    {
+        if (newIndex < 0 || newIndex > matchFrameDataCollection.Count - 1)
+            return;
+        
+        frameCount = newIndex;
+        PlayMatch();
+    }
 
+    // Returns the index of the current frame
+    public int GetFrameCount()
+    {
+        return frameCount;
+    }
+
+    // Returns the match frame rate playback speed
+    public float GetFrameRate()
+    {
+        return frameRate;
+    }
+    
     private void OnEnable()
     {
         MatchDataReader.OnGeneratingMatchData += OnMatchFrameDataRetrieved;
@@ -30,27 +57,6 @@ public class MatchVisualizer : MonoBehaviour
     private void OnDestroy()
     {
         MatchDataReader.OnGeneratingMatchData -= OnMatchFrameDataRetrieved;
-    }
-
-    public void SetFrameCount(int value)
-    {
-        frameCount = value;
-        PlayMatch();
-    }
-    
-    private void PlayMatch()
-    {
-        InvokeRepeating(nameof(VisualizeFrame),0,1.0f/frameRate);
-    }
-    
-    public int GetFrameCount()
-    {
-        return frameCount;
-    }
-
-    public float GetFrameRate()
-    {
-        return frameRate;
     }
     
     private void OnMatchFrameDataRetrieved(List<MatchFrameData> matchFrameDataCollection)
@@ -81,6 +87,14 @@ public class MatchVisualizer : MonoBehaviour
             player.SetJerseyNumber(person);
             //Add the player to the dictionary for later use
             players.Add(person.Id, player);
+            
+            //If a jersey number is lower or equal to 0 disable the actor
+            // Data showed a Yellow Judge Actor inside other players
+            //I'm assuming it is a virtual judge or a camera
+            if (person.JerseyNumber <= 0)
+            {
+                player.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -105,6 +119,7 @@ public class MatchVisualizer : MonoBehaviour
         if (frameCount + 1 <= matchFrameDataCollection.Count - 1)
             nextMatchFrameData = matchFrameDataCollection[frameCount + 1];
 
+        //Set the new position for each player based on the current frame data
         foreach (Person person in matchFrameData.Persons)
         {
             PersonActor player = players[person.Id];

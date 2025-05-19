@@ -4,6 +4,10 @@ using Unity.Cinemachine;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
+
+/// <summary>
+/// This class is responsible for visualizing each frame of the match
+/// </summary>
 public class MatchVisualizer : MonoBehaviour
 {
     [SerializeField] private int frameRate = 25;

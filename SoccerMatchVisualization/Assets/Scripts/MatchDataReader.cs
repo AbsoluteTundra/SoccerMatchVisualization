@@ -4,13 +4,14 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for reading the data from the data file
+/// </summary>
 public class MatchDataReader : MonoBehaviour
 {
-    [SerializeField]
-    private DefaultAsset MatchData;
+    [SerializeField] private DefaultAsset MatchData;
 
-    [SerializeField]
-    private List<MatchFrameData> matchFrameDataCollection = new List<MatchFrameData>();
+    [SerializeField] private List<MatchFrameData> matchFrameDataCollection = new List<MatchFrameData>();
 
     public static Action<List<MatchFrameData>> OnGeneratingMatchData;
 
@@ -23,13 +24,14 @@ public class MatchDataReader : MonoBehaviour
     private void ExtractDataFromFile()
     {
         //TEMP Solution to start reading the data not desirable as this path doesn't exist inside a build and want I something more dynamic later
+        // I'm assuming that within the company they use a system where users can download the matches they want to see or use the Unity Addressable System to deliver content to the users
         foreach (string frameData in File.ReadLines("Assets/Resources/Applicant-test.idf"))
         {
-            //Convert the string retrieved from the file to a class/struct using JsonUtility as the string retrieved is correct json format
+            //Convert the string retrieved from the file to a class/struct using JsonUtility as the string retrieved is in correct json format
             matchFrameDataCollection.Add(JsonUtility.FromJson<MatchFrameData>(frameData));
         }
 
-        //When done we need to tell the class responsible for the visualization that the data is done
+        //When done we need to tell the class responsible for the visualization that the data is done and the match can begin
         OnGeneratingMatchData?.Invoke(matchFrameDataCollection);
     }
 }

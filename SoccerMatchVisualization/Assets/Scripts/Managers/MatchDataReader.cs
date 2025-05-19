@@ -34,8 +34,16 @@ public class MatchDataReader : MonoBehaviour
         
         foreach (string frameData in File.ReadLines(file))
         {
-            //Convert the string retrieved from the file to a class using JsonUtility as the string retrieved is in correct json format and it to the list of frame data
-            matchFrameDataCollection.Add(JsonUtility.FromJson<MatchFrameData>(frameData));
+            try
+            {
+                //Convert the string retrieved from the file to a class using JsonUtility as the string retrieved is in correct json format and it to the list of frame data
+                matchFrameDataCollection.Add(JsonUtility.FromJson<MatchFrameData>(frameData));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //When done we need to tell the class responsible for the visualization that the data is done and the match can begin

@@ -10,7 +10,7 @@ public class MatchDataReader : MonoBehaviour
 {
     [SerializeField] private string matchFileName = "MatchData.idf";
 
-    [SerializeField] private List<MatchFrameData> matchFrameDataCollection = new List<MatchFrameData>();
+    private List<MatchFrameData> matchFrameDataCollection = new List<MatchFrameData>();
 
     public static Action<List<MatchFrameData>> OnGeneratingMatchData;
 

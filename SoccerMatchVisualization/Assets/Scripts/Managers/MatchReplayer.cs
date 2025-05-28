@@ -36,7 +36,6 @@ public class MatchReplayer : MonoBehaviour
     {
         if (matchVisualizer != null)
         {
-            matchVisualizer.CancelInvoke();
             matchVisualizer.SetFrameCount((int) value);
         }
     }

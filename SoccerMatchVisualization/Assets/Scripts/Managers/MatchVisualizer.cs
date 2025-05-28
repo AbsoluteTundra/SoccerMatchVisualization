@@ -24,6 +24,7 @@ public class MatchVisualizer : MonoBehaviour
     
     private void PlayMatch()
     {
+        CancelInvoke();
         InvokeRepeating(nameof(VisualizeFrame),0,1.0f/frameRate);
     }
     

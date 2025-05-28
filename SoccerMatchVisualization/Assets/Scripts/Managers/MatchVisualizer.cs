@@ -112,6 +112,13 @@ public class MatchVisualizer : MonoBehaviour
     // Based on that information changed from using couroutine to instead use InvokeRepeating 
     private void VisualizeFrame()
     {
+        if (frameCount == matchFrameDataCollection.Count)
+        {
+            Debug.Log("No more data Match stopped");
+            CancelInvoke();
+            return;
+        }
+        
         MatchFrameData matchFrameData = matchFrameDataCollection[frameCount];
         
         MatchFrameData nextMatchFrameData = null;
@@ -140,11 +147,5 @@ public class MatchVisualizer : MonoBehaviour
         ball.SetPosition(matchFrameData.Ball);
         
         frameCount++;
-
-        if (frameCount == matchFrameDataCollection.Count)
-        {
-            Debug.Log("No more data Match stopped");
-            CancelInvoke();
-        }
     }
 }
